@@ -9,7 +9,9 @@ class Solution {
         map.put('L',50);  
         map.put('C',100);  
         map.put('D',500);  
-        map.put('M',1000);    
+        map.put('M',1000); 
+        
+        //뒤에가 앞에보다 클 경우에 +가 아닌 -로 바꾼다
         s = s.replace("IV","IIII");  
         s = s.replace("IX","VIIII");  
         s = s.replace("XL","XXXX");  
