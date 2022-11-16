@@ -1,0 +1,19 @@
+class Solution {
+    public boolean isValid(String s) {
+        Map<Character, Character> map = Map.of(')','(',']','[','}','{'); //key 값을 닫는 괄호로해서 여는 값(value)와 비교
+        //자바 9부터 사용할 수 있는 of put과 같음 ,ex)map.push(')','(');
+        
+        Stack<Character> stack = new Stack<>();
+        
+        for(Character c : s.toCharArray()){
+            if(c == '(' || c =='{' || c== '['){
+                stack.push(c);  //열린 괄호가 나오면 push
+            }else if (stack.isEmpty() || stack.pop() != map.get(c)){ //pop 값이 c의 value((, {, [)의 값
+                return false;
+                //
+            }
+        }
+        
+        return stack.isEmpty(); //true
+    }
+}
