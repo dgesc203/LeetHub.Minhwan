@@ -1,0 +1,38 @@
+class Solution {
+    public int searchInsert(int[] nums, int target) {
+        int qed = 0;
+        for(int i=0;i<nums.length;i++){ //nums 배열만큼 반복
+            if(nums[i] == target){  //타겟과 숫자가 일치하면 배열 숫자 빼오기
+                qed = i;
+            }else if(nums[i] < target){ //타겟이 더 크다면 배열보다 한쪽 우측으로 이동
+                qed = i+1;
+            }
+
+        }
+        return qed;
+    }
+}
+
+//기존 풀이법 하위 20% 나왔다.
+
+
+//이진 탐색법을 통한 알고리즘으로 100%의 속도가 나왔다... 알고리즘은 배웠는데 익숙하지 않아, 실전에서 사용하기 어려웠음
+class Solution {
+   public int searchInsert(int[] nums, int target) {
+
+    int start = 0;
+    int end = nums.length-1;
+
+    while(start <= end){
+        int mid = start + (end-start)/2;
+        if(target == nums[mid]){
+            return mid;
+        }else if(target > nums[mid]){ // 같은 걸 찾기위해 줄여야함
+            start = mid+1;
+        }else{
+            end = mid-1;
+        }
+    }
+    return start;
+}
+}
