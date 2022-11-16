@@ -8,7 +8,7 @@ class Solution {
         for(Character c : s.toCharArray()){
             if(c == '(' || c =='{' || c== '['){
                 stack.push(c);  //열린 괄호가 나오면 push
-            }else if (stack.isEmpty() || stack.pop() != map.get(c)){ //pop 값이 c의 value((, {, [)의 값
+            }else if (stack.isEmpty() || stack.pop() != map.get(c)){ //pop 값에 들어갈 수 있는 값 (열린괄호)와 map의 value값 (열린괄호)가 일치하지 않으면 false
                 return false;
                 //
             }
